@@ -5,5 +5,12 @@
     <%= f.text_field :name %>
     <%= link_to_function "remove", "$(this).up('.task').remove()" %>
   </p>
+  
+  <div id="<%= dom_id( task ) %>_notes">
+  </div>
+  
+  <%= add_note_link "Add a note to this task", f, task %>
+  
 <% end %>
+
 </div>

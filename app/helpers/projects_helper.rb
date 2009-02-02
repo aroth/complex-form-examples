@@ -34,4 +34,16 @@ module ProjectsHelper
       }
     end
   end
+  
+  # tasks has_and_belongs_to_many notes
+  def add_note_link( name, form, task )
+    link_to_function name do |page|
+      note = render(:partial => 'note', :locals => { :tf => form, :tag => Note.new })
+      page << %{
+        var new_note_id = "new_" + new Date().getTime();
+        $('#{ dom_id( task ) }_notes').insert({ bottom: "#{ escape_javascript note }".replace(/new_\\d+/g, new_note_id) });
+      }
+    end    
+  end
+  
 end

@@ -1,0 +1,8 @@
+<div class="note">
+<% tf.fields_for :notes, note do |f| %>
+  <p>
+    <%= f.label :body, "Note:" %>
+    <%= f.text_field :body %>
+  </p>
+<% end %>
+</div>

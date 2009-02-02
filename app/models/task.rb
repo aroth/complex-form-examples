@@ -1,5 +1,10 @@
 class Task < ActiveRecord::Base
   belongs_to :project
+  
+  # notes
+  has_and_belongs_to_many :notes
+  accepts_nested_attributes_for :notes
+  
   validates_presence_of :name
   
   attr_accessor :raise_exception
